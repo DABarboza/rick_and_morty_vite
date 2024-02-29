@@ -1,5 +1,6 @@
 import s from "./Card.module.css";
 export default function Card({
+  id,
   name,
   status,
   species,
@@ -22,7 +23,11 @@ export default function Card({
         <h2>{origin}</h2>
       </div>
       <div className={s.buttonContainer}>
-        <button className={s.btn} onClick={onClose}>
+        <button
+          className={s.btn}
+          onClick={() => {
+            onClose(id);
+          }}>
           X
         </button>
       </div>

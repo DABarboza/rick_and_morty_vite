@@ -1,9 +1,11 @@
-import s from "./nav.module.css";
+import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
-export const Nav = () => {
+import s from "./nav.module.css";
+
+const Nav = ({ onSearch }) => {
   return (
     <div className={s.container}>
-      <SearchBar onClose={onClose} />
+      <SearchBar className={s.searchBar} onSearch={onSearch} />
     </div>
   );
 };
