@@ -1,4 +1,5 @@
 import s from "./Card.module.css";
+import { useNavigate } from "react-router-dom";
 export default function Card({
   id,
   name,
@@ -9,8 +10,9 @@ export default function Card({
   image,
   onClose,
 }) {
+  const navigate = useNavigate();
   return (
-    <div className={s.container}>
+    <div className={s.container} onClick={() => navigate(`/detail/${id}`)}>
       <div className={s.imgContainer}>
         <img src={image} alt="" />
         <h2 className={s.name}>{name}</h2>
