@@ -4,14 +4,31 @@ import Nav from "./components/Nav/Nav.jsx";
 import About from "./components/About/About.jsx";
 import Detail from "./components/Detail/Detail.jsx";
 import Form from "./components/Form/Form.jsx";
-import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
+  const [access, setAccess] = useState(false);
+
+  const navigate = useNavigate();
+
+  const EMAIL = "bardanii7@gmail.com";
+  const PASSWORD = "Daniel364";
+
+  const login = (userData) => {
+    if (userData.email === EMAIL && userData.password === PASSWORD) {
+      setAccess(true);
+      navigate("/home");
+    }
+  };
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
 
   const onClose = (id) => {
     let filterCharacters = characters.filter((ch) => {
@@ -35,9 +52,8 @@ function App() {
   return (
     <div className="App">
       {location.pathname !== "/" && <Nav onSearch={onSearch} />}
-      {/* <Nav onSearch={onSearch} /> */}
       <Routes>
-        <Route path="/" element={<Form />} />
+        <Route path="/" element={<Form login={login} />} />
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
