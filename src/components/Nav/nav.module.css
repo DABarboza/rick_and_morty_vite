@@ -1,7 +1,20 @@
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-between;
   background-color: rgba(128, 128, 128, 0.5);
   padding: 10px;
+}
+
+.button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255, 255, 97);
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 255, 97, 0.5);
+  }
 }

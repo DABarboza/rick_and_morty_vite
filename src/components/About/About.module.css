@@ -1,0 +1,19 @@
+/* This is a basic CSS style for the About component provided */
+
+/* Style for the container div */
+.div {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for the heading */
+.h1 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: #7e4e4e;
+}
+.p {
+  margin-bottom: 10px;
+}
