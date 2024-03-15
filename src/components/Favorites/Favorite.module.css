@@ -1,0 +1,8 @@
+.div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0.5rem;
+  gap: 1rem;
+  background-color: rgba(122, 140, 140, 0.581);
+}
