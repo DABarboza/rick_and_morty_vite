@@ -13,7 +13,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   const location = useLocation();
   const [characters, setCharacters] = useState([]);
-  const [access, setAccess] = useState(true);
+  const [access, setAccess] = useState(false);
 
   const navigate = useNavigate();
 

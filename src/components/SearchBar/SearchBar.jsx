@@ -21,6 +21,11 @@ export default function SearchBar({ onSearch }) {
       <Button
         onClick={() => {
           onSearch(id), clearInput();
+        }}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            onSearch(id), clearInput();
+          }
         }}>
         Agregar
       </Button>
