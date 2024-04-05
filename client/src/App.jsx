@@ -39,15 +39,15 @@ function App() {
   };
 
   function onSearch(id) {
-    axios(
-      `https://rym2.up.railway.app/api/character/${id}?key=pi-dabarboza`
-    ).then(({ data }) => {
-      if (data.name) {
-        setCharacters((oldChars) => [...oldChars, data]);
-      } else {
-        window.alert("¡No hay personajes con este ID!");
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert("¡No hay personajes con este ID!");
+        }
       }
-    });
+    );
   }
 
   return (

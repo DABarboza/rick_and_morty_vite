@@ -8,15 +8,15 @@ const Detail = () => {
   const [character, setCharacter] = useState();
 
   useEffect(() => {
-    axios(
-      `https://rym2.up.railway.app/api/character/${id}?key=pi-dabarboza`
-    ).then(({ data }) => {
-      if (data.name) {
-        setCharacter(() => data);
-      } else {
-        window.alert("No hay personajes con ese ID");
+    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+      ({ data }) => {
+        if (data.name) {
+          setCharacter(() => data);
+        } else {
+          window.alert("No hay personajes con ese ID");
+        }
       }
-    });
+    );
   }, [id]);
 
   return !character ? (
