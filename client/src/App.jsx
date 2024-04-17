@@ -45,16 +45,28 @@ function App() {
     setCharacters(filterCharacters);
   };
 
-  function onSearch(id) {
-    axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
+  // function onSearch(id) {
+  //   axios(`http://localhost:3001/rickandmorty/character/${id}`).then(
+  //     ({ data }) => {
+  //       if (data.name) {
+  //         setCharacters((oldChars) => [...oldChars, data]);
+  //       } else {
+  //         window.alert("¡No hay personajes con este ID!");
+  //       }
+  //     }
+  //   );
+  // }
+  async function onSearch(id) {
+    try {
+      const { data } = await axios(
+        `http://localhost:3001/rickandmorty/character/${id}`
+      );
+      if (data.name) {
+        setCharacters((oldChars) => [...oldChars, data]);
       }
-    );
+    } catch (error) {
+      window.alert("¡No hay personajes con este ID!");
+    }
   }
 
   return (
