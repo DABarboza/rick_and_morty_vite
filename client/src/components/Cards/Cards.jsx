@@ -5,6 +5,7 @@ export default function Cards({ characters, onClose }) {
   return (
     <div className={s.container}>
       {characters.map((ch, index) => {
+        console.log(ch);
         // Agregar un prefijo único al id
         const uniqueId = `character-${index}-${ch.id}`;
 
