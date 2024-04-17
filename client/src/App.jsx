@@ -17,15 +17,22 @@ function App() {
 
   const navigate = useNavigate();
 
-  const EMAIL = "bardanii7@gmail.com";
-  const PASSWORD = "Daniel364";
-
-  const login = (userData) => {
-    if (userData.email === EMAIL && userData.password === PASSWORD) {
-      setAccess(true);
-      navigate("/home");
-    }
-  };
+  function login(userData) {
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios
+      .get(URL, {
+        params: {
+          email,
+          password,
+        },
+      })
+      .then(({ data }) => {
+        const { access } = data;
+        setAccess(data);
+        access && navigate("/home");
+      });
+  }
 
   useEffect(() => {
     !access && navigate("/");

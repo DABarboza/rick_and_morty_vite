@@ -4,10 +4,13 @@ import s from "./Cards.module.css";
 export default function Cards({ characters, onClose }) {
   return (
     <div className={s.container}>
-      {characters.map((ch) => {
+      {characters.map((ch, index) => {
+        // Agregar un prefijo único al id
+        const uniqueId = `character-${index}-${ch.id}`;
+
         return (
           <Card
-            key={ch.id}
+            key={uniqueId}
             id={ch.id}
             name={ch.name}
             status={ch.status}
