@@ -33,7 +33,7 @@ UserModel(sequelize);
 // Ejercicio 06
 // ¡Relaciona tus modelos aquí abajo!
 const { User, Favorite } = sequelize.models;
-
+//!TABLA RELACIONAL (intermedia)
 User.belongsToMany(Favorite, { through: "user_favorite" });
 Favorite.belongsToMany(User, { through: "user_favorite" });
 

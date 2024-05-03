@@ -1,11 +1,11 @@
-const { Favorite } = require("../../models/Favorite");
+const { Favorite } = require("../DB_connection");
 
 exports.postFav = async (req, res) => {
   const { id, name, status, species, gender, origin, image } = req.body;
 
   try {
     if (!id || !name || !status || !species || !gender || !origin || !image)
-      return res.status(400).json({ message: "Faltan datos" });
+      return res.status(401).json({ message: "Faltan datos" });
 
     const [charFav, created] = await Favorite.findOrCreate({
       where: { id },
